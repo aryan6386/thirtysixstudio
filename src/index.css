@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  background-color: black;
+  color: white;
+  
+}
+/* src/index.css or src/fonts.css */
+@font-face {
+  font-family: 'PPNeueMontreal';
+  src: url('./fonts/PPNeueMontreal-Medium.ttf') format('truetype');
+  font-weight: 500; /* or the appropriate weight */
+  font-style: normal;
+}
+canvas{
+  pointer-events: none ;
+}
+span.growing{
+  background-color: #fd2c2a;
+}
