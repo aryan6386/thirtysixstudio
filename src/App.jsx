@@ -4,6 +4,7 @@ import data from "./data"
 import LocomotiveScroll from 'locomotive-scroll';
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import React from 'react';
 
 function App() {
   const [showCanvas, setShowCanvas] = useState(false);
@@ -12,9 +13,7 @@ function App() {
   
   useEffect(() => {
     const locomotiveScroll = new LocomotiveScroll();
-    return () => {
-      if (locomotiveScroll) locomotiveScroll.destroy();
-    };
+    
   }, []);
 
   useEffect(() => {
@@ -27,7 +26,7 @@ function App() {
           });
 
           gsap.to("body", {
-            color: "#000",
+            color: "#000", 
             backgroundColor: "#fd2c2a",
             duration: 1.2,
             ease: "power2.inOut",
@@ -63,7 +62,7 @@ function App() {
     return () => headingElement.removeEventListener("click", handleClick);
   }, []);
 
-  return <>
+  return( <>
     <span ref={growingSpan} className="growing rounded-full fixed left-[-20px] right-[-20px] w-5 h-5"></span>
     <div className="w-full relative min-h-screen font-['PPNeueMontreal']">
       {showCanvas && data[0].map((canvasDets, index) => (
@@ -99,11 +98,73 @@ function App() {
         <Canvas key={index} details={canvasDets}/>
       ))}
       <div className="relative z-[1]">
-        <h1 className="text-8xl tracking-tighter">about the brand</h1>
-        <p className="text-4xl leading-1.8 w-[80%] mt-10 font-light">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati, itaque id iste voluptatem enim debitis aliquid ducimus deleniti nihil. Nam nostrum aspernatur at beatae error rerum rem sit? Tempora in quia pariatur illum ex.</p>
+        <div className="text-2xl ml-80  text-white font-bold">01 WHAT WE DO</div>
+        <div className="flex justify-between items-center w-full text-white"> 
+          <div></div>
+          <div className="text-4xl tracking-tight leading-[1.2] pr-[17%] w-[50%] padding:30">We aim to elevate digital production in the advertising space, bringing your ideas to life.
+            <p className="text-[40%] tracking-wider pt-10">As a contemporary studio, we use cutting-edge design practices and the latest technologies to deliver current digital work.</p>
+            <br />
+            <p className="text-[40%] tracking-wider">Our commitment to innovation and simplicity, paired with our agile approach, ensures your journey with us is smooth and enjoyable from start to finish.</p>
+          </div>
+        </div>
+ {/* Services Section */}
+ <div className="relative w-full min-h-screen px-10 py-20 text-white z-[-1]">
+      <div className="text-2xl ml-80 font-bold mb-20">02 OUR SERVICES</div>
+      <div className="grid grid-cols-3 gap-10 px-20">
+        <div className="service-card">
+          <h3 className="text-2xl mb-4">Digital Design</h3>
+          <p className="text-gray-400">UI/UX Design, Web Design, Brand Identity, Motion Graphics</p>
+        </div>
+        <div className="service-card">
+          <h3 className="text-2xl mb-4">Development</h3>
+          <p className="text-gray-400">Web Development, Interactive Experiences, Custom Solutions</p>
+        </div>
+        <div className="service-card">
+          <h3 className="text-2xl mb-4">Creative Technology</h3>
+          <p className="text-gray-400">3D Animation, AR/VR Experiences, Interactive Installations</p>
+        </div>
       </div>
     </div>
+      </div>
+      {/* Footer Section */}
+    <footer className="w-full text-white py-20 px-10 z-[-1]">
+      <div className="container mx-auto">
+        <div className="grid grid-cols-4 gap-10">
+          <div>
+            <h4 className="text-xl mb-6">Thirtysixstudio</h4>
+            <p className="text-gray-400">Creating digital experiences that matter.</p>
+          </div>
+          <div>
+            <h4 className="text-xl mb-6">Contact</h4>
+            <p className="text-gray-400">hello@thirtysixstudio.com</p>
+            <p className="text-gray-400">+1 (555) 123-4567</p>
+          </div>
+          <div>
+            <h4 className="text-xl mb-6">Location</h4>
+            <p className="text-gray-400">123 Creative Street</p>
+            <p className="text-gray-400">New York, NY 10001</p>
+          </div>
+          <div>
+            <h4 className="text-xl mb-6">Social</h4>
+            <div className="flex gap-4">
+              <a href="#" className="text-gray-400 hover:text-white">Instagram</a>
+              <a href="#" className="text-gray-400 hover:text-white">Twitter</a>
+              <a href="#" className="text-gray-400 hover:text-white">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+        <div className="mt-20 pt-10 border-t border-gray-800 text-center text-gray-400">
+          <p>&copy; 2024 Thirtysixstudio. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+    </div>
+
+   
+
+    
   </>
+  );
 }
 
 export default App
